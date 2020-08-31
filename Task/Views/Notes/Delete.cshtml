@@ -1,0 +1,71 @@
+﻿@model Task.Models.Note
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>@Localization.LocalizationResource.Delete</h2>
+
+<h3>@Localization.LocalizationResource.Delete_confirn</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_Note)
+        </dd>
+
+        <dt>
+            @Localization.LocalizationResource.DateAdded
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAdded)
+        </dd>
+
+        <dt>
+            @Localization.LocalizationResource.UserName
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Email)
+        </dd>
+
+        <dt>
+            @Localization.LocalizationResource.Title
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Localization.LocalizationResource.Message
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="@Localization.LocalizationResource.Delete" class="b-edit btn-danger" />
+        <button class="b-back btn-success" type="button" onclick="location.href='@Url.Action("Index","Notes")'">@Localization.LocalizationResource.BackToList</button>
+    </div>
+    }
+</div>

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - @ViewBag.Header</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/_main.css" rel="stylesheet" />
+    <script src="~/Scripts/_onLoad.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*@Html.ActionLink(@Localization.LocalizationResource.list, "Notes", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+
+                @Html.ActionLink(@Localization.LocalizationResource.Notes, "Index", "Notes", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink(@Localization.LocalizationResource.CreateNew, "Create", "Notes")</li>
+                </ul>
+                <ul class="nav navbar-nav" style="float: right;" role="menu">
+                    <li class="localizationButtons">
+                        @Html.ActionLink(linkText: "RU", actionName: "ChangeCulture", controllerName: "Localization",
+                routeValues: new { lang = "ru" }, htmlAttributes: null)
+                    </li>
+                    <li class="localizationButtons">
+                        @Html.ActionLink(linkText: "EN", actionName: "ChangeCulture", controllerName: "Localization",
+                                    routeValues: new { lang = "en" }, htmlAttributes: null)
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

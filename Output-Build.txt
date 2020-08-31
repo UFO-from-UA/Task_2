@@ -1,0 +1,3 @@
+﻿1>------ Build started: Project: Task, Configuration: Debug Any CPU ------
+1>  Task -> E:\яЯя\ВСЕ\Задание\last\Task\Task\bin\Task.dll
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========

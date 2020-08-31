@@ -1,0 +1,41 @@
+﻿<link href="~/Content/_details.css" rel="stylesheet" />
+
+@model Task.Models.Note
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Localization.LocalizationResource.Details</h2>
+
+<h3>@Localization.LocalizationResource.Details_more</h3>
+<div>
+    <div class="details-container col-md-12">
+        <div class="details-titel col-md-12">
+            @Html.DisplayFor(model => model.Title)
+        </div>
+        <div class="details-left col-md-3">
+            <div class="details-hdata">
+                @Html.DisplayFor(model => model.User.UserName)
+            </div>
+            <div class="details-hdata">
+                @Html.DisplayFor(model => model.DateAdded)
+            </div>
+            <div class="details-hdata">
+                @Html.DisplayFor(model => model.User.Email)
+            </div>
+        </div>
+        <div class="details-right col-md-9">
+            @Html.DisplayFor(model => model.Message)
+        </div>
+    </div>
+
+    <div>
+        <button class="b-edit btn-info" type="button" onclick="location.href='@Url.Action("Edit","Notes", new { id = @Model.Id_Note })'">@Localization.LocalizationResource.Edit</button>
+        <button class="b-edit btn-danger" type="button" onclick="location.href='@Url.Action("Delete","Notes", new { id = @Model.Id_Note })'">@Localization.LocalizationResource.Delete</button>
+        <div>
+            <button class="b-back btn-success" type="button" onclick="location.href='@Url.Action("Index","Notes")'">@Localization.LocalizationResource.Back</button>
+        </div>
+    </div>
+   
+</div>

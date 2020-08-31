@@ -1,0 +1,17 @@
+﻿
+button {
+    border-radius: 10px;
+    width: 200px;
+    margin: 5px;
+    font-size: 1.4em;
+}
+
+.form-group div.col-md-10 input{
+    max-width:100%;
+}
+
+.form-group div.col-md-10 textarea {
+    max-width: 100%;
+    width: 2000px;
+    border-radius: 5px;
+}

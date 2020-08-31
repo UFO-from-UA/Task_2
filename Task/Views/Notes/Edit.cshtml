@@ -1,0 +1,79 @@
+﻿@model Task.Models.Note
+
+@{
+    ViewBag.Title = "Edit";
+}
+<link href="~/Content/_edit.css" rel="stylesheet" />
+<h3>
+    @Localization.LocalizationResource.Edit
+</h3>
+
+@using (Html.BeginForm("SubmitData", "Notes", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    @Html.HiddenFor(model => model.Id_Note)
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger edit-mes" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Id_Note, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Id_Note, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+            @Html.ValidationMessageFor(model => model.Id_Note, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DateAdded, @Localization.LocalizationResource.DateAdded, htmlAttributes: new { @class = "control-label col-md-2" })
+       
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DateAdded, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DateAdded, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.User.UserName, @Localization.LocalizationResource.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.User.UserName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.User.UserName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.User.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.User.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.User.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Title, @Localization.LocalizationResource.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Message, @Localization.LocalizationResource.Message, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Message, new { htmlAttributes = new { @class = "form-control text-box" }, @rows = 4 })
+            @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" runat="server" id="Button1" value="@Localization.LocalizationResource.Save" class="btn btn-success" OnClick="btn_save" onclick="btn_save" click="btn_save" />
+        </div>
+    </div>
+</div>
+    }
+
+<div>
+    <button class="b-back btn-success" type="button" onclick="location.href='@Url.Action("Index","Notes")'">@Localization.LocalizationResource.BackToList</button>
+    <button class="b-back btn-success" type="button" onclick="location.href='@Url.Action("Details","Notes", new {  id=@Model.Id_Note } )'">@Localization.LocalizationResource.Back</button>
+</div>
