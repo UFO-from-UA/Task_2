@@ -1,15 +1,11 @@
 
 # Task Notes
 
-Simple ASP.NET application
+Simple ASP.NET Framework application
 
 ## Getting Started
 
-1.Just run application from debug or release folder
-```
-Task -> obj -> Debug
-Task -> obj -> Release
-```
+1.Just run application with Visual Studio
 
 ## Information
 
@@ -38,4 +34,4 @@ The application has no database, just a fake like a list.
 * [stackoverflow](https://stackoverflow.com/) 
 * [MSDN](https://docs.microsoft.com/ru-ru/) 
 
-
+### Result video -> Result.avi
